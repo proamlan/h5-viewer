@@ -1,0 +1,11 @@
+.vscode/**
+.vscode-test/**
+src/**
+.gitignore
+.eslintrc*
+tsconfig*.json
+esbuild.js
+*.h5
+*.hdf5
+*.he5
+**/*.map

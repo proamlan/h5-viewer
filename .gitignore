@@ -1,0 +1,42 @@
+# Dependencies (keep package-lock.json committed for reproducible installs)
+node_modules/
+
+# Build output
+dist/
+out/
+
+# Packaged extensions
+*.vsix
+
+# VS Code test runner / debug artifacts
+.vscode-test/
+*.code-workspace
+*.log
+
+# Keep launch & debug configs, ignore the rest of .vscode
+.vscode/*
+!.vscode/launch.json
+!.vscode/tasks.json
+!.vscode/extensions.json
+
+# TypeScript incremental builds
+*.tsbuildinfo
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# OS cruft
+.DS_Store
+Thumbs.db
+
+# Editor backups
+*~
+*.swp
+*.swo
+
+# Local test data (HDF5 fixtures) — don't commit large binaries
+*.h5
+*.hdf5
+*.he5
+!test-data/**/*.h5

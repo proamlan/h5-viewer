@@ -1,0 +1,71 @@
+{
+  "name": "h5-viewer",
+  "displayName": "H5 Viewer — HDF5 Inspector",
+  "description": "Fast, lightweight inspector for HDF5 (.h5, .hdf5, .he5) files. Tree explorer, metadata, paginated data grid, slicing & canvas previews. Pure-JS parsing via jsfive.",
+  "version": "0.1.0",
+  "publisher": "you",
+  "icon": "images/icon.png",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/you/h5-viewer"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Viewers",
+    "Data Science"
+  ],
+  "keywords": [
+    "hdf5",
+    "h5",
+    "he5",
+    "viewer",
+    "inspector",
+    "custom-editor"
+  ],
+  "activationEvents": [
+    "onCustomEditor:h5Viewer.hdf5Editor"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "customEditors": [
+      {
+        "viewType": "h5Viewer.hdf5Editor",
+        "displayName": "HDF5 Inspector",
+        "selector": [
+          { "filenamePattern": "*.h5" },
+          { "filenamePattern": "*.hdf5" },
+          { "filenamePattern": "*.he5" }
+        ],
+        "priority": "default"
+      }
+    ],
+    "commands": [
+      {
+        "command": "h5Viewer.reopenAsHdf5",
+        "title": "H5 Viewer: Reopen as HDF5 Inspector",
+        "category": "H5 Viewer"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "node esbuild.js",
+    "compile:webview": "node esbuild.js",
+    "watch": "node esbuild.js --watch",
+    "package": "vsce package",
+    "lint": "tsc --noEmit",
+    "test": "echo \"No tests yet. Open Extension Development Host (F5) and open a .h5 file.\"",
+    "vscode:prepublish": "npm run compile"
+  },
+  "dependencies": {
+    "jsfive": "^0.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0",
+    "esbuild": "^0.20.2",
+    "typescript": "^5.3.3"
+  }
+}
